@@ -4,22 +4,13 @@ function readDatabaseFile($filePath)
 {
     $data = file_exists($filePath) ? json_decode(file_get_contents($filePath), true) : [];
     return $data;
-    // if (file_exists($filePath) && is_readable($filePath)) {
-    //     $data = json_decode(file_get_contents($filePath), true) ?? [];
-    //     return $data;
-    // } else {
-    //     throw new Exception('Database file is not accessible.');
-    // }
+   
 }
 
 // Function to write data to the database file
 function writeDatabaseFile($filePath, $data)
 {
-    // if (file_exists($filePath) && is_writable($filePath)) {
-    //     file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT));
-    // } else {
-    //     throw new Exception('Database file is not writable.');
-    // }
+    
 
     file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT));
 }
@@ -40,13 +31,7 @@ function validateEmail($email)
         throw new Exception('Email is invalid.');
     }
 
-    // if (isDisposableEmail($email)) {
-    //     throw new Exception('Disposable email addresses are not allowed.');
-    // }
-
-    // if (!isValidEmailDomain($email)) {
-    //     throw new Exception('Email domain does not exist.');
-    // }
+   
 }
 
 function validateUsername($username)
@@ -59,10 +44,6 @@ function validateUsername($username)
     if (!preg_match('/^[A-Za-z0-9_]+$/', $username)) {
         throw new Exception('Username can only contain letters, numbers, and underscores.');
     }
-
-    // if (containsProfanity($username)) {
-    //     throw new Exception('Username contains profanity and is not allowed.');
-    // }
 }
 
 function validatePassword($password)
